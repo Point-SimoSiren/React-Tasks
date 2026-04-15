@@ -23,12 +23,29 @@ const [newDesc, setNewDesc] = useState("")
 const [newPrior, setNewPrior] = useState(3)
 
 
+//---------------------------------------------------------------------------
+    // Form onSubmit kutsuu tätä funktiota kun painetaan save buttonia
+    
+    const tallennus = (event) => {
+        event.preventDefault() // skipataan normaali käytös, eli sivun refresh formin submitoinnissa.
+
+        //Muodostetaan objekti, joka tullaan lähettämään backendille json muodossa
+        const newTask = {
+            title: newTitle,
+            description: newDesc,
+            priority: newPrior
+        }
+
+        // testi
+        alert(newTask.title + "\n" + newTask.description + "\n" + newTask.priority)
+    }
+//----------------------------------------------------------------------
 
 return(  
     <div style={windowStyle}>
         <h5>Add new Task</h5>
 
-        <form>
+        <form onSubmit={tallennus}>
             <label>Title</label>
             <input type="text" value={newTitle} placeholder='Title' onChange={({target}) => setNewTitle(target.value)} />
 
