@@ -20,7 +20,7 @@ const windowStyle = {
 // koko ajan. Päivittyy aina kun käyttäjä muuttaa tekstiä inputkentässä
 const [newTitle, setNewTitle] = useState("")
 const [newDesc, setNewDesc] = useState("")
-const [newPrior, setNewprior] = useState(3)
+const [newPrior, setNewPrior] = useState(3)
 
 
 
