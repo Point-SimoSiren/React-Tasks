@@ -12,10 +12,9 @@ function App() {
 
             <Tasks />
 
-            {/* 
-            Laskuri on kommentoitu pois
+            
             <Laskuri otsikko="Simon laskuri" />
-            <Laskuri otsikko="Yleinen laskuri" /> */}
+            <Laskuri otsikko="Yleinen laskuri" />
 
       </section>
   )
