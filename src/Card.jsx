@@ -1,6 +1,7 @@
 import './App.css'
 import React, {useState} from 'react'
 
+// Card komponentti saa propsina task objektin kutsuvalta Tasks.jsx komponentilta
 function Card({task}) {
 
 return(  

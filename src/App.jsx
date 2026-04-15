@@ -12,7 +12,6 @@ function App() {
 
             <Tasks />
 
-            
             <Laskuri otsikko="Simon laskuri" />
             <Laskuri otsikko="Yleinen laskuri" />
 
