@@ -26,20 +26,41 @@ const [newPrior, setNewPrior] = useState(3)
 //---------------------------------------------------------------------------
     // Form onSubmit kutsuu tätä funktiota kun painetaan save buttonia
     
-    const tallennus = (event) => {
-        event.preventDefault() // skipataan normaali käytös, eli sivun refresh formin submitoinnissa.
+    const tallennus = async (event) => {
+    event.preventDefault()
 
-        //Muodostetaan objekti, joka tullaan lähettämään backendille json muodossa
-        const newTask = {
-            title: newTitle,
-            description: newDesc,
-            priority: newPrior
+    const newTask = {
+        title: newTitle,
+        description: newDesc,
+        priority: newPrior,
+        status: 1,
+    }
+
+    try {
+        const response = await fetch("https://taskbackend20264.azurewebsites.net", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newTask)
+        })
+
+        if (!response.ok) {
+            throw new Error("Virhe tallennuksessa")
         }
 
-        // testi
-        alert(newTask.title + "\n" + newTask.description + "\n" + newTask.priority)
+        const data = await response.json()
+
+        console.log("Tallennettu:", data)
+        alert("Tallennus onnistui!")
+
+    } catch (error) {
+        console.error("Virhe:", error)
+        alert("Tallennus epäonnistui")
     }
-//----------------------------------------------------------------------
+}
+
+//---------------------------------------------------------------
 
 return(  
     <div style={windowStyle}>
