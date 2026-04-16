@@ -6,8 +6,8 @@ function Card({task}) {
 
 //---- Poistofunktio, jota delete nappi kutsuu -------------
 
-const poista = (task) => {
-    let vahvistus = window.confirm("Want to delete task: " + task.Title + "?")
+const poista = async (task) => {
+    let vahvistus = window.confirm("Want to delete task: " + task.title + "?")
     if (vahvistus === false) {
         return
     }
@@ -31,6 +31,7 @@ const poista = (task) => {
         console.error("Virhe:", error)
         alert("Poisto epäonnistui")
     }
+}
 
 //---Poisto päättyy--------------------------------------
 
