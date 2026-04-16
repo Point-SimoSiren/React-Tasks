@@ -19,7 +19,7 @@ function Laskuri({otsikko}) {
 
             <button style={buttonStyle} onClick={() => setLuku(luku+1)}>+</button>
             <button style={buttonStyle} onClick={() => setLuku(luku+1)}>-</button>
-            <button style={buttonStyle} onClick={() => setLuku(luku+1)}>Reset</button>
+            <button style={buttonStyle} onClick={() => setLuku(0)}>Reset</button>
 
       </div>
   )
