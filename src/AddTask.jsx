@@ -27,8 +27,9 @@ const [newPrior, setNewPrior] = useState(3)
     // Form onSubmit kutsuu tätä funktiota kun painetaan save buttonia
     
     const tallennus = async (event) => {
-    event.preventDefault()
+    event.preventDefault() // normaaali selaimen päivitys submitissa estettään
 
+    // Luodaan objekti joka tulee mukaan http post pyyntöön alempana
     const newTask = {
         title: newTitle,
         description: newDesc,
@@ -36,6 +37,7 @@ const [newPrior, setNewPrior] = useState(3)
         status: 1,
     }
 
+    // Tehdään http POST tyyppinen pyyntö backendiin, mukana datana em. newTask objekti
     try {
         const response = await fetch("https://taskbackend20264.azurewebsites.net", {
             method: "POST",
