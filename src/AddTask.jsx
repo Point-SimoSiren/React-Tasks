@@ -44,7 +44,7 @@ const [newPrior, setNewPrior] = useState(3)
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newTask)
+            body: JSON.stringify(newTask) // Pyynnön bodyyn tulee data joka on muutettu JSON muotoon
         })
 
         if (!response.ok) {
