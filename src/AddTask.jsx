@@ -39,7 +39,7 @@ const [newPrior, setNewPrior] = useState(3)
 
     // Tehdään http POST tyyppinen pyyntö backendiin, mukana datana em. newTask objekti
     try {
-        const response = await fetch("https://taskbackend20264.azurewebsites.net", {
+        const response = await fetch("https://taskbackend20264.azurewebsites.net/api/tasks", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -51,9 +51,6 @@ const [newPrior, setNewPrior] = useState(3)
             throw new Error("Virhe tallennuksessa")
         }
 
-        const data = await response.json()
-
-        console.log("Tallennettu:", data)
         alert("Tallennus onnistui!")
 
     } catch (error) {
