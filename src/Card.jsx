@@ -6,6 +6,9 @@ function Card({task}) {
 
 return(  
     <div className='kortti' key={task.taskId}>
+        <button style={{background: "red"}}>delete</button>
+        <button style={{background: "cyan", color: "blue"}}>edit</button>
+
         <h5>{task.title}</h5>
         <p>{task.description}</p>
         <p>Status: {task.status}</p>
