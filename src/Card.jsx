@@ -1,5 +1,6 @@
 import './App.css'
 import React, {useState} from 'react'
+import { TASKS_API_URL } from './config/api'
 
 // Card komponentti saa propsina task objektin kutsuvalta Tasks.jsx komponentilta
 function Card({task}) {
@@ -13,7 +14,7 @@ const poista = async (task) => {
     }
     // Http delete pyyntö backendiin
     try {
-        let url = "https://taskbackend20264.azurewebsites.net/api/tasks" + "/" + task.taskId
+        let url = `${TASKS_API_URL}/${task.taskId}`
         const response = await fetch(url, {
             method: "DELETE",
             headers: {

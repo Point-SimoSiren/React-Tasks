@@ -2,6 +2,7 @@ import './App.css'
 import React, {useState, useEffect} from 'react'
 import Card from './Card'
 import AddTask from './AddTask'
+import { TASKS_API_URL } from './config/api'
 
 function Tasks() {
 
@@ -14,7 +15,7 @@ function Tasks() {
     // ja silloin kun 2. parametrinä olevassa taulukossa mainittu
     // staten nimi vaihtuu
     useEffect(() => {
-        fetch("https://localhost:7111/api/tasks")
+        fetch(TASKS_API_URL)
         .then(jsonData => jsonData.json())
         .then(data => setTasks(data), setLoading(false))
     },[])

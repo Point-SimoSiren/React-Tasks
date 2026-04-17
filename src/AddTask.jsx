@@ -1,5 +1,6 @@
 import './App.css'
 import React, {useState} from 'react'
+import { TASKS_API_URL } from './config/api'
 
 function AddTask() {
 
@@ -39,7 +40,7 @@ const [newPrior, setNewPrior] = useState(3)
 
     // Tehdään http POST tyyppinen pyyntö backendiin, mukana datana em. newTask objekti
     try {
-        const response = await fetch("https://taskbackend20264.azurewebsites.net/api/tasks", {
+        const response = await fetch(TASKS_API_URL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
