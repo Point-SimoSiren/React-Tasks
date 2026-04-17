@@ -54,8 +54,23 @@ return(
         {task.status === 1 && <p>Waiting</p>}
         {task.status === 2 && <p>Started at: </p>}
         {task.status === 3 && <p>Finished at: </p>}
-
         <p>{task.statusChanged}</p>
+
+        {task.status === 1 && <button style={{background: "green", color: "white"}}>
+            {"\u2192"}
+        </button>}
+
+        {task.status === 2 && 
+        <>
+            <button style={{background: "green", color: "white"}}>
+                {"\u2190"}
+            </button>
+            <button style={{background: "green", color: "white"}}>
+                {"\u2192"}
+            </button>
+        </>
+        }
+
     </div>
     )
 }

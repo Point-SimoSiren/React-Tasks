@@ -14,7 +14,7 @@ function Tasks() {
     // ja silloin kun 2. parametrinä olevassa taulukossa mainittu
     // staten nimi vaihtuu
     useEffect(() => {
-        fetch("https://taskbackend20264.azurewebsites.net/api/tasks")
+        fetch("https://localhost:7111/api/tasks")
         .then(jsonData => jsonData.json())
         .then(data => setTasks(data), setLoading(false))
     },[])
@@ -32,21 +32,21 @@ function Tasks() {
             {tasks && (
                 <div className="tasks-columns">
                     <div className="tasks-column">
-                        <h4 className="tasks-column-title">Status 1</h4>
+                        <h4 className="tasks-column-title">Planned</h4>
                         {tasks.filter(t => t.status === 1).map(t => (
                             <Card key={t.taskId} task={t} />
                         ))}
                     </div>
 
                     <div className="tasks-column">
-                        <h4 className="tasks-column-title">Status 2</h4>
+                        <h4 className="tasks-column-title">Working</h4>
                         {tasks.filter(t => t.status === 2).map(t => (
                             <Card key={t.taskId} task={t} />
                         ))}
                     </div>
 
                     <div className="tasks-column">
-                        <h4 className="tasks-column-title">Status 3</h4>
+                        <h4 className="tasks-column-title">Completed</h4>
                         {tasks.filter(t => t.status === 3).map(t => (
                             <Card key={t.taskId} task={t} />
                         ))}
