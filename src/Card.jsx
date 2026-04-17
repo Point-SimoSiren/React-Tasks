@@ -56,10 +56,12 @@ return(
         {task.status === 3 && <p>Finished at: </p>}
         <p>{task.statusChanged}</p>
 
+        {/* Vasen sarake, nuoli oikealle */}
         {task.status === 1 && <button style={{background: "green", color: "white"}}>
             {"\u2192"}
         </button>}
 
+         {/* Keskimmäinen sarake, nuolet vasen ja oikea */}
         {task.status === 2 && 
         <>
             <button style={{background: "green", color: "white"}}>
