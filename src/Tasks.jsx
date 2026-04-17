@@ -20,7 +20,7 @@ function Tasks() {
     },[])
 
   return (
-      <div>
+      <div className="tasks-view">
             <h2>Tasks</h2>
 
             {!adding && <button onClick={() => setAdding(true)}>Create task</button> }
@@ -29,11 +29,30 @@ function Tasks() {
             
             {loading && <h4>"Loading..."</h4>}
 
-            {tasks && tasks.map(t => (
-                <Card key={t.taskId} task={t} />
-              )
-             )
-            }
+            {tasks && (
+                <div className="tasks-columns">
+                    <div className="tasks-column">
+                        <h4 className="tasks-column-title">Status 1</h4>
+                        {tasks.filter(t => t.status === 1).map(t => (
+                            <Card key={t.taskId} task={t} />
+                        ))}
+                    </div>
+
+                    <div className="tasks-column">
+                        <h4 className="tasks-column-title">Status 2</h4>
+                        {tasks.filter(t => t.status === 2).map(t => (
+                            <Card key={t.taskId} task={t} />
+                        ))}
+                    </div>
+
+                    <div className="tasks-column">
+                        <h4 className="tasks-column-title">Status 3</h4>
+                        {tasks.filter(t => t.status === 3).map(t => (
+                            <Card key={t.taskId} task={t} />
+                        ))}
+                    </div>
+                </div>
+            )}
       </div>
   )
 }

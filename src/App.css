@@ -228,3 +228,18 @@ button:disabled {
     border-right-color: var(--border);
   }
 }
+
+.tasks-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.tasks-column {
+  min-width: 0;
+}
+
+.tasks-column-title {
+  margin: 16px 0 8px;
+}
