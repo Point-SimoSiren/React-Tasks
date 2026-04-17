@@ -35,6 +35,18 @@ const poista = async (task) => {
 
 //---Poisto päättyy--------------------------------------
 
+//------------ ARROW nappien tyyli -------------------
+
+const arrowStyle = {
+    background: "rgba(172, 102, 156, 0.3)", 
+    color: "white", 
+    borderColor: "pink",
+    borderStyle: "solid",
+    fontSize: "30px",
+    padding: "6px 20px"
+}
+
+
 
 return(  
     <div className='kortti' key={task.taskId}>
@@ -57,24 +69,24 @@ return(
         <p>{task.statusChanged}</p>
 
         {/* Vasen sarake, nuoli oikealle */}
-        {task.status === 1 && <button style={{background: "green", color: "white"}}>
+        {task.status === 1 && <button style={arrowStyle}>
             {"\u2192"}
         </button>}
 
          {/* Keskimmäinen sarake, nuolet vasen ja oikea */}
         {task.status === 2 && 
         <>
-            <button style={{background: "green", color: "white"}}>
+            <button style={arrowStyle}>
                 {"\u2190"}
             </button>
-            <button style={{background: "green", color: "white"}}>
+            <button style={arrowStyle}>
                 {"\u2192"}
             </button>
         </>
         }
 
          {/* Oikea sarake, nuoli vasen */}
-        {task.status === 3 && <button style={{background: "green", color: "white"}}>
+        {task.status === 3 && <button style={arrowStyle}>
             {"\u2190"}
         </button>}
 
