@@ -73,6 +73,11 @@ return(
         </>
         }
 
+         {/* Oikea sarake, nuoli vasen */}
+        {task.status === 1 && <button style={{background: "green", color: "white"}}>
+            {"\u2190"}
+        </button>}
+
     </div>
     )
 }
