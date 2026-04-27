@@ -34,7 +34,37 @@ const poista = async (task) => {
     }
 }
 
-//---Poisto päättyy--------------------------------------
+//---Statuksen muuttamisen funktiot (painetaan arrow nappia)-------------------
+
+const rightArrowClick = async (task) => {
+    let newStatus = task.status + 1
+
+    let url = `${TASKS_API_URL}/update-status/${task.taskId}`
+    const response = await fetch(url, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: newStatus
+
+    }
+)
+}
+
+const leftArrowClick = async (task) => {
+    let newStatus = task.status - 1
+
+    let url = `${TASKS_API_URL}/update-status/${task.taskId}`
+    const response = await fetch(url, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: newStatus
+
+    }
+)
+}
 
 //------------ ARROW nappien tyyli -------------------
 
@@ -70,24 +100,27 @@ return(
         <p>{task.statusChanged}</p>
 
         {/* Vasen sarake, nuoli oikealle */}
-        {task.status === 1 && <button style={arrowStyle}>
+        {task.status === 1 && <button style={arrowStyle}
+            onClick={() => rightArrowClick(task)}>
             {"\u2192"}
         </button>}
 
          {/* Keskimmäinen sarake, nuolet vasen ja oikea */}
         {task.status === 2 && 
         <>
-            <button style={arrowStyle}>
+            <button style={arrowStyle}
+            onClick={() => leftArrowClick(task)}>
                 {"\u2190"}
             </button>
-            <button style={arrowStyle}>
+            <button style={arrowStyle} onClick={() => rightArrowClick(task)}>
                 {"\u2192"}
             </button>
         </>
         }
 
          {/* Oikea sarake, nuoli vasen */}
-        {task.status === 3 && <button style={arrowStyle}>
+        {task.status === 3 && <button style={arrowStyle}
+        onClick={() => leftArrowClick(task)}>
             {"\u2190"}
         </button>}
 
