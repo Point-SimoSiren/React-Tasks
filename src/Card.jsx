@@ -36,6 +36,7 @@ const poista = async (task) => {
 
 //---Statuksen muuttamisen funktiot (painetaan arrow nappia)-------------------
 
+// --- OIKEA ---
 const rightArrowClick = async (task) => {
     let newStatus = task.status + 1
 
@@ -50,7 +51,7 @@ const rightArrowClick = async (task) => {
     }
 )
 }
-
+// --- VASEN ---
 const leftArrowClick = async (task) => {
     let newStatus = task.status - 1
 
