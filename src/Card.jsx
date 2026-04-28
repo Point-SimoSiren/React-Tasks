@@ -36,9 +36,9 @@ const poista = async (task) => {
 
 //---Statuksen muuttamisen funktiot (painetaan arrow nappia)-------------------
 
-// --- OIKEA ---
+// --- OIKEA NUOLI (ARROW) ---
 const rightArrowClick = async (task) => {
-    let newStatus = task.status + 1
+    let newStatus = task.status + 1 //Status kasvaa yhdellä
 
     let url = `${TASKS_API_URL}/update-status/${task.taskId}`
     const response = await fetch(url, {
@@ -48,9 +48,11 @@ const rightArrowClick = async (task) => {
                 },
                 body: newStatus
 
-    }
-)
+        }
+        )
+      window.location.reload() // sivun päivitys
 }
+
 // --- VASEN ---
 const leftArrowClick = async (task) => {
     let newStatus = task.status - 1
@@ -63,8 +65,9 @@ const leftArrowClick = async (task) => {
                 },
                 body: newStatus
 
-    }
-)
+        }
+    )
+ window.location.reload() // sivun päivitys
 }
 
 //------------ ARROW nappien tyyli -------------------
