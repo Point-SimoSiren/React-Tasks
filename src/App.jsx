@@ -1,11 +1,12 @@
 import './App.css'
+import Info from './Info'
 import Laskuri from './Laskuri'
 import Tasks from './Tasks'
 import React from 'react'
 
 function App() {
 
-  // State: määrää näytetäänkö laskuri vai Task sovellus
+  // State: määrää näytetäänkö laskuri, about vai Task sovellus
   const [page, setPage] = React.useState("task-app")
 
 
@@ -39,10 +40,16 @@ const linkStyle = {
         <div style={navStyle}>
           <a style={linkStyle} onClick={() => setPage("task-app")}>Tasks</a>
           <a style={linkStyle} onClick={() => setPage("counter")}>Counter</a>
+          <a style={linkStyle} onClick={() => setPage("info")}>About</a>
+
         </div>
 
             {page === "task-app" && 
               <Tasks />
+            }
+
+               {page === "info" && 
+              <Info />
             }
 
             {page === "counter" &&
